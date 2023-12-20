@@ -16,29 +16,29 @@ mongoose
     useCreateIndex: true,
     useFindAndModify: false
   })
-  .then(() => console.log(`DB connection successful!`));
+  .then(() => console.log('DB connection successful!'));
 
-// Read Json File
+// READ JSON FILE
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/tours-simple.json`, 'utf-8')
 );
 
-// Import Data Into DB
+// IMPORT DATA INTO DB
 const importData = async () => {
   try {
     await Tour.create(tours);
-    console.log(`Data successfully Loaded!`);
+    console.log('Data successfully loaded!');
   } catch (err) {
     console.log(err);
   }
   process.exit();
 };
 
-// Delete Att The Data From DB
+// DELETE ALL DATA FROM DB
 const deleteData = async () => {
   try {
     await Tour.deleteMany();
-    console.log(`Data successfully Deleted!`);
+    console.log('Data successfully deleted!');
   } catch (err) {
     console.log(err);
   }
